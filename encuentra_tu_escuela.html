@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MuchaBocha · Encontrá tu escuela</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/escuelas.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/header.css" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/MuchaBocha.png" alt="MuchaBocha" />
+                <span class="logo-text">Mucha<span class="accent">Bocha</span></span>
+            </div>
+            <nav aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="encuentra_tu_escuela.html">Encuentra tu escuela</a>
+                <a href="quienes_somos.html">Quiénes somos</a>
+                <a href="ayuda.html">Ayuda</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== SIDEBAR (FILTRO LATERAL) ===== -->
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <button class="btn-close-sidebar" id="btnCloseSidebar" aria-label="Cerrar filtros">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <div class="sidebar-body">
+            <div class="sidebar-categories">
+                <!-- Categoría 1: Especialidad -->
+                <div class="sidebar-category">
+                    <h4>Especialidad</h4>
+                    <ul>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="tics"> TICs</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="multimedia"> Multimedia</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="electronica"> Electrónica</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="mecanica"> Mecánica</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="salud"> Salud</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="administracion"> Administración</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="quimica"> Química</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="diseno"> Diseño</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="comunicacion"> Comunicación</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="deportes"> Deportes</label></li>
+                    </ul>
+                </div>
+
+                <!-- Categoría 2: Modalidad -->
+                <div class="sidebar-category">
+                    <h4>Modalidad</h4>
+                    <ul>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="mañana"> Mañana</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="noche"> Noche</label></li>
+                        <li><label class="sidebar-option-item"><input type="checkbox" class="sidebar-check" value="entreturno"> EntreTurno</label></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main>
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+            <div class="hero-content">
+                <h1>¿Qué quiere ser tu hijo de grande?</h1>
+                <p>Es la primer pregunta que se tienen que hacer para que encuentre su profesión perfecta.</p>
+            </div>
+        </section>
+
+        <!-- FILTER SECTION -->
+        <section class="filter-section">
+            <div class="container">
+                <div class="filter-header">
+                    <h2>Filtro Rápido</h2>
+                    <p>Clickeá y elegí las profesiones que hay en CABA ya con el filtro rápido</p>
+                    <button class="btn-filter-all" id="btnFiltrarTodo">
+                        <i class="fas fa-sliders-h"></i> Filtrar todo
+                    </button>
+                </div>
+
+                <div class="filter-controls">
+                    <button class="btn-filter-main" data-target="interes">Por interés / profesiones</button>
+                    
+                    <div class="btn-row">
+                        <button class="btn-filter" data-target="comuna"><span>Por comuna</span></button>
+                        <button class="btn-filter" data-target="especialidad"><span>Por especialidad</span></button>
+                        <button class="btn-filter" data-target="modalidad"><span>Por modalidad</span></button>
+                    </div>
+                </div>
+
+                <!-- Contenedor de Desplegables -->
+                <div class="dropdowns-container">
+                    <!-- Dropdown Interés -->
+                    <div id="interes" class="dropdown-panel">
+                        <h4>Seleccioná tu interés profesional</h4>
+                        <div class="options-grid">
+                            <label class="option-item"><input type="radio" name="interes" value="Tecnología y Sistemas"> Tecnología y Sistemas</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Salud y Bienestar"> Salud y Bienestar</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Arte, Diseño y Comunicación"> Arte, Diseño y Comunicación</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Negocios y Economía"> Negocios y Economía</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Ciencias Sociales y Humanidades"> Ciencias Sociales y Humanidades</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Ciencias Naturales y Exactas"> Ciencias Naturales y Exactas</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Deportes y Educación Física"> Deportes y Educación Física</label>
+                            <label class="option-item"><input type="radio" name="interes" value="Industria y Producción"> Industria y Producción</label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Comuna -->
+                    <div id="comuna" class="dropdown-panel">
+                        <h4>Seleccioná una comuna de CABA</h4>
+                        <div class="options-grid">
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 1"> Comuna 1</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 2"> Comuna 2</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 3"> Comuna 3</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 4"> Comuna 4</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 5"> Comuna 5</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 6"> Comuna 6</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 7"> Comuna 7</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 8"> Comuna 8</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 9"> Comuna 9</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 10"> Comuna 10</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 11"> Comuna 11</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 12"> Comuna 12</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 13"> Comuna 13</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 14"> Comuna 14</label>
+                            <label class="option-item"><input type="radio" name="comuna" value="Comuna 15"> Comuna 15</label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Especialidad -->
+                    <div id="especialidad" class="dropdown-panel">
+                        <h4>Seleccioná una especialidad</h4>
+                        <div class="options-grid">
+                            <label class="option-item"><input type="radio" name="especialidad" value="TICs"> TICs</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Multimedia"> Multimedia</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Electrónica"> Electrónica</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Mecánica"> Mecánica</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Salud"> Salud</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Administración"> Administración</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Química"> Química</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Diseño"> Diseño</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Comunicación"> Comunicación</label>
+                            <label class="option-item"><input type="radio" name="especialidad" value="Deportes"> Deportes</label>
+                        </div>
+                    </div>
+
+                    <!-- Dropdown Modalidad -->
+                    <div id="modalidad" class="dropdown-panel">
+                        <h4>Seleccioná una modalidad</h4>
+                        <div class="options-grid">
+                            <label class="option-item"><input type="radio" name="modalidad" value="Técnica"> Técnica</label>
+                            <label class="option-item"><input type="radio" name="modalidad" value="Bachillerato"> Bachillerato</label>
+                            <label class="option-item"><input type="radio" name="modalidad" value="Comercial"> Comercial</label>
+                            <label class="option-item"><input type="radio" name="modalidad" value="Artística"> Artística</label>
+                            <label class="option-item"><input type="radio" name="modalidad" value="Especializada"> Especializada</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===== RESULTS SECTION ===== -->
+        <section class="results-section" id="resultsSection">
+            <div class="container">
+                <h3 class="results-title">Antes de que busques...</h3>
+                
+                <div class="info-box">
+                    <div class="info-box-content">
+                        <h4 id="infoBoxTitle">¿Qué es [especialidad]?</h4>
+                        <p id="infoBoxText">Seleccioná una opción en los filtros para conocer más sobre las escuelas disponibles.</p>
+                    </div>
+                </div>
+
+                <div class="cards-grid" id="cardsGrid">
+                    <!-- Las tarjetas se generarán dinámicamente con JavaScript -->
+                </div>
+
+                <!-- Botón Ver Más -->
+                <div class="btn-ver-mas-wrapper">
+                    <button class="btn-ver-mas" id="btnVerMas">
+                        Ver más escuelas <i class="fas fa-arrow-down"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="images/MuchaBocha.png" alt="MuchaBocha" />
+                    <span class="logo-text">Mucha<span class="accent">Bocha</span></span>
+                </div>
+                <p>La plataforma que ayuda a estudiantes de CABA a encontrar la escuela secundaria que mejor se adapta a sus intereses y su futuro.</p>
+                <div class="footer-social" aria-label="Redes sociales">
+                    <a href="https://www.facebook.com/profile.php?id=61594573179709" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@MuchaBocha" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="encuentra_tu_escuela.html"><i class="fas fa-chevron-right"></i> Encuentra tu escuela</a></li>
+                    <li><a href="#especialidades"><i class="fas fa-chevron-right"></i> Especialidades en auge</a></li>
+                    <li><a href="#testimonios"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+                    <li><a href="encuentra_tu_escuela.html"><i class="fas fa-chevron-right"></i> Comparador de escuelas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="quienes_somos.html"><i class="fas fa-chevron-right"></i> Quiénes somos</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Preguntas frecuentes</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Guía para familias</a></li>
+                    <li><a href="mailto:muchabocha.caba@gmail.com"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Ayuda</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-news">
+                <h4>Sumate al newsletter</h4>
+                <p>Recibí novedades sobre especialidades, escuelas y orientación vocacional.</p>
+                <form>
+                    <input type="email" placeholder="tu@email.com" required />
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copy">
+                © 2026 <strong>MuchaBocha</strong>. Todos los derechos reservados.
+            </div>
+            <div class="legal">
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="js/escuelas.js" defer></script>
+    <script src="js/footer.js" defer></script>
+</body>
+</html>

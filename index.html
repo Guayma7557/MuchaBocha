@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MuchaBocha · Escuelas a medida</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bitter:wght@700;900&family=Nunito:wght@400;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+
+    <link rel="stylesheet" href="css/inicio.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="stylesheet" href="css/header.css" />
+</head>
+<body>
+
+    <!-- ===== HEADER ===== -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <img src="images/MuchaBocha.png" alt="MuchaBocha" />
+                <span class="logo-text">Mucha<span class="accent">Bocha</span></span>
+            </div>
+            <nav aria-label="Navegación principal">
+                <a href="index.html">Inicio</a>
+                <a href="encuentra_tu_escuela.html">Encuentra tu escuela</a>
+                <a href="quienes_somos.html">Quiénes somos</a>
+                <a href="ayuda.html">Ayuda</a>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero" id="hero">
+        <div class="hero-background"></div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1>Su escuela, <span>a medida</span></h1>
+                <p>Navegá por todas las escuelas de CABA y elegí la que encaje con vos.</p>
+                <a href="encuentra_tu_escuela.html" class="btn">Buscar ya →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FRASE ===== -->
+    <section class="footer-note">
+        <div class="container">
+            <p>Miles de chicos se especializan en profesiones en las que no terminan trabajando</p>
+        </div>
+    </section>
+
+    <!-- =====================================================================
+         ESPECIALIDADES
+         ===================================================================== -->
+    <section class="especialidades" id="especialidades">
+        <div class="constelacion-viewport" id="constelacionViewport">
+            <div class="constelacion-canvas" id="constelacionCanvas"></div>
+
+        </div>
+
+        <div class="especialidades-content">
+            <div class="header-block">
+                <p class="lead">por eso, te ayudamos a encontrar su futuro real</p>
+                <h2>Especialidades en auge</h2>
+                <p class="instrucciones">Arrastrá el mapa para explorar • Clickeá una esfera para saber más</p>
+            </div>
+
+            <div class="bottom-block">
+                <div class="btn-ver-mas-wrapper">
+                    <button class="btn-ver-mas" id="btnVerMas" type="button">
+                        Y mucho más <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Descripción flotante (fixed) -->
+    <div class="descripcion-especialidad" id="descripcionEspecialidad">
+        <span class="placeholder">Hacé clic en una especialidad para conocer más</span>
+    </div>
+
+    <!-- =====================================================================
+         QUICK NAV — solo texto (sin caja/borde), visible solo en el hero
+         ===================================================================== -->
+    <div class="quick-nav" id="quickNav" aria-label="Navegación rápida">
+        <button class="quick-nav-btn" data-target="#especialidades" title="Ir a Especialidades en auge">
+            <i class="fas fa-circle-nodes"></i>
+            <span>Especialidades</span>
+        </button>
+        <div class="quick-nav-sep"></div>
+        <button class="quick-nav-btn" data-target="#testimonios" title="Ir a Testimonios">
+            <i class="fas fa-quote-right"></i>
+            <span>Testimonios</span>
+        </button>
+    </div>
+
+    <!-- ===== TESTIMONIOS ===== -->
+    <section class="testimonios" id="testimonios">
+        <div class="testimonios-header">
+            <h2>Testimonios</h2>
+            <p class="subtitle">Escuelas de CABA que ya forman parte de la comunidad MuchaBocha</p>
+        </div>
+
+        <div class="testimonios-carrusel">
+            <button class="testimonios-btn left" id="testimoniosLeft" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
+            <div class="testimonios-container">
+                <div class="testimonios-track" id="testimoniosTrack"></div>
+            </div>
+            <button class="testimonios-btn right" id="testimoniosRight" aria-label="Siguiente"><i class="fas fa-chevron-right"></i></button>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <div class="logo">
+                    <img src="images/MuchaBocha.png" alt="MuchaBocha" />
+                    <span class="logo-text">Mucha<span class="accent">Bocha</span></span>
+                </div>
+                <p>La plataforma que ayuda a estudiantes de CABA a encontrar la escuela secundaria que mejor se adapta a sus intereses y su futuro.</p>
+                <div class="footer-social" aria-label="Redes sociales">
+                    <a href="https://www.facebook.com/profile.php?id=61594573179709" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+                    <a href="https://www.youtube.com/@MuchaBocha" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>Plataforma</h4>
+                <ul>
+                    <li><a href="index.html"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="encuentra_tu_escuela.html"><i class="fas fa-chevron-right"></i> Encuentra tu escuela</a></li>
+                    <li><a href="#especialidades"><i class="fas fa-chevron-right"></i> Especialidades en auge</a></li>
+                    <li><a href="#testimonios"><i class="fas fa-chevron-right"></i> Testimonios</a></li>
+                    <li><a href="encuentra_tu_escuela.html"><i class="fas fa-chevron-right"></i> Comparador de escuelas</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>Recursos</h4>
+                <ul>
+                    <li><a href="quienes_somos.html"><i class="fas fa-chevron-right"></i> Quiénes somos</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Preguntas frecuentes</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Guía para familias</a></li>
+                    <li><a href="mailto:muchabocha.caba@gmail.com"><i class="fas fa-chevron-right"></i> Contacto</a></li>
+                    <li><a href="ayuda.html"><i class="fas fa-chevron-right"></i> Ayuda</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col footer-news">
+                <h4>Sumate al newsletter</h4>
+                <p>Recibí novedades sobre especialidades, escuelas y orientación vocacional.</p>
+                <form>
+                    <input type="email" placeholder="tu@email.com" required />
+                    <button type="submit"><i class="fas fa-paper-plane"></i> Enviar</button>
+                </form>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="copy">
+                © 2026 <strong>MuchaBocha</strong>. Todos los derechos reservados.
+            </div>
+            <div class="legal">
+                <a href="#">Términos y condiciones</a>
+                <a href="#">Política de privacidad</a>
+                <a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== JAVASCRIPT ===== -->
+    <script src="js/inicio.js" defer></script>
+
+    <script src="js/footer.js" defer></script>
+</body>
+</html>

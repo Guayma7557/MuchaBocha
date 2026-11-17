@@ -1,8 +1,78 @@
 document.addEventListener('DOMContentLoaded', function() {
             const schoolsData = [
-                { id: 1, name: 'ET 20 DE 20 Carolina Muzzilli', desc: 'Primer secundaria con orientación TICs, sumado a Multimedia.  En esta escuela, tu hijo va a aprender desde diseño gráfico (multimedia), hasta ideación de páginas web con HTML, CSS y Java (TICs).', tag: 'TICs', img: 'images/et20.png', comuna: 'Comuna 9', modalidad: 'Mañana' }
-                
-            ];
+    {
+        id: 1,
+        name: 'ET 1 Otto Krause',
+        desc: 'Formación técnica en seis especialidades: Computación (programación, redes, hardware), Construcciones (diseño y cálculo de obras), Electrónica (circuitos y sistemas), Eléctrica (instalaciones y potencia), Mecánica (motores y mecanizado) y Química (laboratorio y procesos).',
+        tags: ['Computación', 'Construcciones', 'Electrónica', 'Eléctrica', 'Mecánica', 'Química'],
+        img: 'images/et1.png',
+        comuna: 'Comuna 1',
+        modalidad: 'Mañana y Tarde'
+    },
+    {
+        id: 2,
+        name: 'ET 20 Carolina Muzzilli',
+        desc: 'Orientación en TICs (redes, programación, desarrollo web) y Producción Multimedial (diseño gráfico, video, animación, audio). Los estudiantes aprenden a crear contenido digital y a gestionar infraestructuras tecnológicas.',
+        tags: ['TICs', 'Multimedia'],
+        img: 'images/et20.png',
+        comuna: 'Comuna 9',
+        modalidad: 'Mañana y Tarde'
+    },
+    {
+        id: 3,
+        name: 'ET 12 Libertador Gral. José de San Martín',
+        desc: 'Tres especialidades: Electricidad (instalaciones y distribución de energía), Electrónica (circuitos y comunicaciones) y Computación (programación, hardware y redes).',
+        tags: ['Electricidad', 'Electrónica', 'Computación'],
+        img: 'images/et12.png',
+        comuna: 'Comuna 1',
+        modalidad: 'Mañana y Tarde'
+    },
+    {
+        id: 4,
+        name: 'ET 19 Alejandro Volta',
+        desc: 'Especialización en Electrónica con fuerte base en informática: circuitos, microcontroladores, sistemas digitales y reparación de equipos. Los egresados obtienen el título de Técnico en Electrónica.',
+        tags: ['Electrónica'],
+        img: 'images/et19.png',
+        comuna: 'Comuna 1',
+        modalidad: 'Mañana, Tarde y Noche'
+    },
+    {
+        id: 5,
+        name: 'ET 8 Paula Albarracín de Sarmiento',
+        desc: 'Especialidad en Química: análisis de laboratorio, procesos químicos industriales, control de calidad y manejo de sustancias. La escuela también cuenta con un bachillerato orientado en Ciencias Sociales.',
+        tags: ['Química'],
+        img: 'images/et8.png',
+        comuna: 'Comuna 9',
+        modalidad: 'Mañana y Tarde'
+    },
+    {
+        id: 6,
+        name: 'ET 3 María Sánchez de Thompson',
+        desc: 'Tres orientaciones: Computación (programación y redes), Geografía Matemática (análisis territorial y datos) y Óptica (salud visual, elaboración y adaptación de lentes).',
+        tags: ['Computación', 'Geografía Matemática', 'Óptica'],
+        img: 'images/et3.png',
+        comuna: 'Comuna 14',
+        modalidad: 'Mañana y Tarde'
+    },
+    {
+        id: 7,
+        name: 'ET 15 Maipú',
+        desc: 'Diseño y Producción Gráfica (impresión, packaging, editorial) y Diseño y Comunicación Publicitaria (marketing, producción audiovisual, fotografía).',
+        tags: ['Diseño Gráfico', 'Publicidad'],
+        img: 'images/et15.png',
+        comuna: 'Comuna 4',
+        modalidad: 'Mañana y Tarde'
+    },
+    {
+        id: 8,
+        name: 'ET 23 Casal Calviño',
+        desc: 'Formación en Mecánica: motores, sistemas de transmisión, mantenimiento industrial y electromovilidad. Los estudiantes participan en competencias de innovación y vehículos eléctricos.',
+        tags: ['Mecánica'],
+        img: 'images/et23.png',
+        comuna: 'Comuna 9',
+        modalidad: 'Mañana y Tarde'
+    }
+];
 
             const sidebarMap = {
                 'tics': 'TICs', 'multimedia': 'Multimedia', 'electronica': 'Electrónica',
@@ -128,47 +198,60 @@ document.addEventListener('DOMContentLoaded', function() {
             function renderSchools() {
                 let filteredData = schoolsData;
 
+                // 1. Filtro por radio (interés, comuna, especialidad, modalidad)
                 if (state.radioFilter) {
                     const { name, value } = state.radioFilter;
+
                     if (name === 'comuna') {
                         filteredData = filteredData.filter(s => s.comuna === value);
                     } else if (name === 'especialidad') {
-                        filteredData = filteredData.filter(s => s.tag === value);
+                        // Ahora la especialidad se compara contra el array de tags
+                        filteredData = filteredData.filter(s => s.tags.includes(value));
                     } else if (name === 'modalidad') {
-                        filteredData = filteredData.filter(s => s.modalidad === value);
+                        // La modalidad sigue siendo un string (ej. "Mañana y Tarde")
+                        filteredData = filteredData.filter(s => s.modalidad.includes(value));
                     } else if (name === 'interes') {
                         const interesMap = {
-                            'Tecnología y Sistemas': ['TICs', 'Electrónica', 'Multimedia'],
-                            'Salud y Bienestar': ['Salud'],
-                            'Arte, Diseño y Comunicación': ['Diseño', 'Comunicación', 'Multimedia'],
+                            'Tecnología y Sistemas': ['TICs', 'Electrónica', 'Multimedia', 'Computación'],
+                            'Salud y Bienestar': ['Salud', 'Química', 'Óptica'],
+                            'Arte, Diseño y Comunicación': ['Diseño Gráfico', 'Publicidad', 'Multimedia', 'Diseño'],
                             'Negocios y Economía': ['Administración'],
                             'Ciencias Sociales y Humanidades': ['Comunicación', 'Administración'],
-                            'Ciencias Naturales y Exactas': ['Química', 'Salud'],
+                            'Ciencias Naturales y Exactas': ['Química', 'Salud', 'Geografía Matemática'],
                             'Deportes y Educación Física': ['Deportes'],
-                            'Industria y Producción': ['Mecánica', 'Electrónica']
+                            'Industria y Producción': ['Mecánica', 'Electrónica', 'Eléctrica', 'Construcciones']
                         };
-                        const tags = interesMap[value] || [];
-                        filteredData = filteredData.filter(s => tags.includes(s.tag));
+                        const tagsInteres = interesMap[value] || [];
+                        filteredData = filteredData.filter(s => s.tags.some(tag => tagsInteres.includes(tag)));
                     }
                 }
 
+                // 2. Filtros del sidebar (especialidades y modalidades)
                 if (state.sidebarEspecialidades.length > 0) {
-                    filteredData = filteredData.filter(s => state.sidebarEspecialidades.includes(s.tag));
+                    filteredData = filteredData.filter(s =>
+                        s.tags.some(tag => state.sidebarEspecialidades.includes(tag))
+                    );
                 }
                 if (state.sidebarModalidades.length > 0) {
-                    filteredData = filteredData.filter(s => state.sidebarModalidades.includes(s.modalidad));
+                    filteredData = filteredData.filter(s =>
+                        state.sidebarModalidades.some(mod => s.modalidad.includes(mod))
+                    );
                 }
 
+                // 3. Límite de tarjetas
                 const limit = showAllSchools ? filteredData.length : 6;
                 const schoolsToRender = filteredData.slice(0, limit);
 
+                // 4. Renderizado de tarjetas (mostrando todos los tags)
                 cardsGrid.innerHTML = schoolsToRender.map(school => `
                     <div class="card">
                         <img src="${school.img}" alt="${school.name}" class="card-img">
                         <div class="card-content">
                             <h5>${school.name}</h5>
                             <p>${school.desc}</p>
-                            <span class="card-tag">${school.tag}</span>
+                            <div class="card-tags">
+                                ${school.tags.map(tag => `<span class="card-tag">${tag}</span>`).join(' ')}
+                            </div>
                         </div>
                     </div>
                 `).join('');
@@ -177,6 +260,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     cardsGrid.innerHTML = `<p class="no-results">No se encontraron escuelas con los filtros seleccionados.</p>`;
                 }
 
+                // 5. Botón "Ver más"
                 if (filteredData.length > 6) {
                     btnVerMas.style.display = 'inline-flex';
                     btnVerMas.innerHTML = showAllSchools ? 'Ver menos <i class="fas fa-arrow-up"></i>' : 'Ver más escuelas <i class="fas fa-arrow-down"></i>';

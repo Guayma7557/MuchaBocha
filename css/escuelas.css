@@ -651,6 +651,12 @@
             margin: 0;
             flex: 1;
         }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
         .card-tag {
             display: inline-block;
             background: rgba(242, 166, 90, 0.2);
